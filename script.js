@@ -44,28 +44,32 @@ function generatePassword() {
     //prompt user to choose whether or not to include special character
     var choiceCharacter = confirm("would you like to use special characters?")
   }
-
+  //create an empty array to store password in 
   var passArray = [];
 
+  // checks if user chooses a special character and adds it to the password
   if (choiceCharacter) {
     passArray = passArray.concat(specialCharacter);
   }
 
+  // checks if user chooses a number and adds it to the password
   if (choiceNumbers) {
     passArray = passArray.concat(numbers);
   }
 
+  // checks if user chooses a lower case alphabet and adds it to the password
   if (choiceLowercase) {
     passArray = passArray.concat(lowerAlpha);
   }
-
+  // checks if user chooses a upper case alphabet and adds it to the password
   if (choiceUppercase) {
     passArray = passArray.concat(upperAlpha);
   }
 
   // Empty string to be filled based on for loop selecting random characters from the array
   var randPassword = "";
-
+  
+  // for loop to generate random characters and add it to previous string until reach desired password length
   for (var i = 0; i < passwordLength; i++) {
     randPassword = randPassword + passArray[Math.floor(Math.random() * passArray.length)];
   }
